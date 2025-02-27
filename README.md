@@ -71,4 +71,4 @@ Display OLED:
 Exibe mensagens de instrução e feedback para o usuário.
 
 Vídeo de Demonstração
-Clique em link do vídeo para visualizar o vídeo de demonstração do projeto. (Substitua pelo link real do seu vídeo.)
+Clique em link do vídeo para visualizar o vídeo de demonstração do projeto. (https://youtu.be/lt4p2NqllEU)
