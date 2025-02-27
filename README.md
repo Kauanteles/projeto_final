@@ -1,45 +1,74 @@
-# Resumo do projeto
+Resumo do Projeto
+O projeto implementa um sistema de autenticação com senha utilizando a placa Raspberry Pi Pico. O sistema inclui a manipulação de uma matriz de LEDs, um display SSD1306, LEDs de feedback individual e botões que utilizam interrupções, pull-up e debounce para garantir a leitura correta dos cliques. O usuário pode criar uma senha e, posteriormente, autenticar-se digitando a senha correta, com feedback visual na matriz de LEDs e no display OLED.
 
-O projeto implementa a comunicação serial na placa BitDogLab, juntamente com manipulação de matriz de leds, led RGB individual, display SSD1306,
-e uso de botões que utilizam de interrupções, pull-up e debounce para garantir a leitura correta dos cliques.
+Instruções de Uso
+Para usar o software, siga os seguintes passos:
 
-# Instruções de uso
+1° Passo: Clonar o Repositório
+Clone o repositório para o seu computador.
 
-Para uso do software, siga os seguintes passos:
+2° Passo: Configurar o Ambiente
+Abra o projeto com o VSCode.
 
-- **1°:** clone o repositório para o seu computador.
+A extensão do CMake irá criar a pasta build automaticamente com os arquivos de compilação.
 
-    - Ao abrir o projeto com o **VSCode**, a extensão do **CMake** irá criar a pasta ``build`` para você com os arquivos de compilação.
+Caso a pasta build não seja gerada, crie uma pasta com o nome build e execute o seguinte comando dentro dela:
 
-    - Caso não seja gerada a pasta, crie uma pasta com nome `build` e execute o seguinte comando dentro da pasta criada:
-        
-        ``cmake ..``
+bash
+Copy
+cmake ..
+Esse comando irá gerar os arquivos de compilação necessários.
 
-        O comando acima irá criar os arquivos de compilação.
+3° Passo: Compilar o Firmware
+Execute a compilação do firmware usando a extensão do Raspberry Pi Pico no VSCode.
 
-- **2°:** execute a compilação do firmware usando a extensão do ***Raspberry Pi Pico*** do ***VSCode***.
+Agora, o firmware está compilado e pronto para uso.
 
-A partir daqui, seu firmware já está compilado e pronto para uso, e só depende de onde será usado.
+Execução no Raspberry Pi Pico
+1° Passo: Entrar em Modo de Boot
+Coloque o Raspberry Pi Pico em modo de bootsel:
 
-## Execução na *BitDogLab*
+Segure o botão BOOTSEL na placa.
 
-- **1°:** coloque o seu ***Raspberry*** em modo de ***bootsel***, clicando no botão branco na placa e reiniciando a mesma.
+Conecte o Raspberry Pi Pico ao computador via USB.
 
-- **2°:** copie o arquivo `.uf2` que foi gerado na pasta `build` para o seu ***Raspberry*** (ele aparecerá como um armazenamento externo, um Pen-Drive com nome de RPI-RP2).
+Solte o botão BOOTSEL.
 
-    - Após isso, rode o código e abra o monitor serial do vs code.
+2° Passo: Carregar o Firmware
+Copie o arquivo .uf2 gerado na pasta build para o Raspberry Pi Pico (ele aparecerá como um armazenamento externo chamado RPI-RP2).
 
-- **3°:** Está pronto, dê os comandos no monitor serial ou clique nos botões.
+3° Passo: Executar o Projeto
+Abra o monitor serial no VSCode.
 
+O sistema estará pronto para uso. Siga as instruções exibidas no display OLED e utilize os botões para interagir com o sistema.
 
+Funcionalidades Disponíveis
+Botão A: Criar Senha
+Pressione o botão A para criar uma nova senha.
 
-## Comandos e funcionalidades disponívels:
-**Comando via teclado no monitor serial**: letras maiúsculas ou minúsculas, ou números de 0 a 9 (caractere único por comando), após digitados são mostrados no display e na matriz de leds no caso de números;
+Digite a senha desejada no terminal serial (máximo de 6 caracteres).
 
-Botão `A`: acende ou apaga o led RGB em verde, juntamente com retorno em texto no display do sucesso da ação;
+A senha será armazenada e o sistema exibirá uma animação "V" na matriz de LEDs para confirmar a criação.
 
-Botão `B`: acende ou apaga o led RGB em azul, juntamente com retorno em texto no display do sucesso da ação;
+Botão B: Inserir Senha
+Pressione o botão B para inserir uma senha.
 
-## Vídeo Ensaio mostrando execução na placa ***BitDogLab***:
+Digite a senha no terminal serial.
 
-Clique em ***[link do video](https://youtu.be/t77KQAaVPeo)*** para visualizar o vídeo ensaio do projeto.
+Se a senha estiver correta, o sistema exibirá uma animação "V" na matriz de LEDs.
+
+Se a senha estiver incorreta, o sistema exibirá uma animação "X" na matriz de LEDs.
+
+Feedback Visual
+Matriz de LEDs:
+
+"V" (verde): Senha correta.
+
+"X" (vermelho): Senha incorreta.
+
+Display OLED:
+
+Exibe mensagens de instrução e feedback para o usuário.
+
+Vídeo de Demonstração
+Clique em link do vídeo para visualizar o vídeo de demonstração do projeto. (Substitua pelo link real do seu vídeo.)
